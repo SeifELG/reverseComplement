@@ -9,11 +9,20 @@
 
 		<style type="text/css">
 
+
+
 		textarea{
 			width:400px;
 			height: 200px;
 			display:block;
+			//margin-bottom:10px;
 		}
+
+		#button, #copyButton{
+			width: 400px;
+			//margin-bottom:10px;
+		}
+
 		</style>
 
 	</head>
@@ -24,6 +33,7 @@
 			<textarea id="input"></textarea>
 			<input type="button" id="button" value="Reverse Complement">
 			<textarea id="output"></textarea>
+			<input type="button" id="copyButton" value="Copy to Clipboard" onclick="copyText()">
 
 		</div>
 
@@ -47,6 +57,12 @@
 			console.log(input);
 			$("#output").val(input);
 		});
+
+		function copyText(){
+			var text = document.getElementById("output");
+			text.select();
+			document.execCommand("copy");
+		};
 
 
 		</script>
