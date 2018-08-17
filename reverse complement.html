@@ -14,10 +14,6 @@
 			height: 200px;
 			display:block;
 		}
-
-
-
-
 		</style>
 
 	</head>
@@ -26,7 +22,7 @@
 		<div id="mainBody">
 
 			<textarea id="input"></textarea>
-			<input type="button" id="button" value="Reverse Complement"></input>
+			<input type="button" id="button" value="Reverse Complement">
 			<textarea id="output"></textarea>
 
 		</div>
@@ -38,9 +34,20 @@
 
 		$("#button").click(function(){
 			var input = $("#input").val();
-
-
+			input = input.split("");
+			input = input.reverse();
+			for(var i=0;i<input.length;i++){
+				var a = input[i];
+				if (map[a]!=""){
+					input[i]=map[a];
+				}
+			};
+			input = input.toString();
+			input = input.replace(/,/g, "");
+			console.log(input);
+			$("#output").val(input);
 		});
+
 
 		</script>
 
